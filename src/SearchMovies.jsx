@@ -8,7 +8,13 @@ function SearchMovies(props){
         try{
             const response = await fetch(url)
             const data = await response.json()
+            console.log(data)
+            if(data.Response === "True"){
             props.addFavorite(data)
+            }
+            else{
+                alert("Movie not found. Please try again.")
+            }
         }
         catch(err){
             console.log(err)
